@@ -8,7 +8,13 @@
 import UIKit
 
 class CounterListViewController: UIViewController {
+    
+    //MARK: - Properties
+    
+    var viewModel: CounterListViewModel!
 
+    //MARK: - Lifecycle
+    
     static func instantiate() -> CounterListViewController {
          let storyboard = UIStoryboard(name: "Main", bundle: .main)
          let controller = storyboard.instantiateViewController(identifier: "CounterListViewController") as! CounterListViewController
@@ -20,18 +26,13 @@ class CounterListViewController: UIViewController {
         
         view.backgroundColor = .green
 
-        // Do any additional setup after loading the view.
+        setupNavController()
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    //MARK: - Helper functions
+    
+    private func setupNavController() {
+        navigationController?.navigationBar.prefersLargeTitles = true
+        navigationItem.title = viewModel.title
     }
-    */
-
 }

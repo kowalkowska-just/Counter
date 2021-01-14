@@ -19,10 +19,10 @@ class CounterListCoordinator: Coordinator {
     }
     
     func start() {
-        let eventListViewController = CounterListViewController.instantiate()
-        navigationController.setViewControllers([eventListViewController], animated: false)
+        let counterListViewController: CounterListViewController = .instantiate()
+        let counterListViewModel = CounterListViewModel()
+        counterListViewModel.coordinator = self
+        counterListViewController.viewModel = counterListViewModel
+        navigationController.setViewControllers([counterListViewController], animated: false)
     }
-    
-    
-    
 }

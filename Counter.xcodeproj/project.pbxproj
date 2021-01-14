@@ -15,6 +15,8 @@
 		D124AE7125B0E89B0031AC97 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D124AE7025B0E89B0031AC97 /* AppCoordinator.swift */; };
 		D124AE7425B0E9110031AC97 /* CounterListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D124AE7325B0E9110031AC97 /* CounterListViewController.swift */; };
 		D124AE7B25B0E93C0031AC97 /* CounterListCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D124AE7A25B0E93C0031AC97 /* CounterListCoordinator.swift */; };
+		D124AE8425B0F8DA0031AC97 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D124AE8325B0F8DA0031AC97 /* Extension.swift */; };
+		D124AE8925B0F9990031AC97 /* CounterListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D124AE8825B0F9990031AC97 /* CounterListViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +30,8 @@
 		D124AE7025B0E89B0031AC97 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		D124AE7325B0E9110031AC97 /* CounterListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CounterListViewController.swift; sourceTree = "<group>"; };
 		D124AE7A25B0E93C0031AC97 /* CounterListCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CounterListCoordinator.swift; sourceTree = "<group>"; };
+		D124AE8325B0F8DA0031AC97 /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
+		D124AE8825B0F9990031AC97 /* CounterListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CounterListViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,7 +67,9 @@
 				D124AE5A25B0E5580031AC97 /* AppDelegate.swift */,
 				D124AE5C25B0E5580031AC97 /* SceneDelegate.swift */,
 				D124AE7D25B0E9460031AC97 /* Cooordinators */,
+				D124AE8B25B0FA460031AC97 /* ViewModels */,
 				D124AE7725B0E9190031AC97 /* Controllers */,
+				D124AE8625B0F91E0031AC97 /* Extension */,
 				D124AE6025B0E5580031AC97 /* Main.storyboard */,
 				D124AE6325B0E55C0031AC97 /* Assets.xcassets */,
 				D124AE6525B0E55C0031AC97 /* LaunchScreen.storyboard */,
@@ -87,6 +93,22 @@
 				D124AE7A25B0E93C0031AC97 /* CounterListCoordinator.swift */,
 			);
 			path = Cooordinators;
+			sourceTree = "<group>";
+		};
+		D124AE8625B0F91E0031AC97 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				D124AE8325B0F8DA0031AC97 /* Extension.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		D124AE8B25B0FA460031AC97 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				D124AE8825B0F9990031AC97 /* CounterListViewModel.swift */,
+			);
+			path = ViewModels;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -162,8 +184,10 @@
 				D124AE7425B0E9110031AC97 /* CounterListViewController.swift in Sources */,
 				D124AE7125B0E89B0031AC97 /* AppCoordinator.swift in Sources */,
 				D124AE5B25B0E5580031AC97 /* AppDelegate.swift in Sources */,
+				D124AE8425B0F8DA0031AC97 /* Extension.swift in Sources */,
 				D124AE7B25B0E93C0031AC97 /* CounterListCoordinator.swift in Sources */,
 				D124AE5D25B0E5580031AC97 /* SceneDelegate.swift in Sources */,
+				D124AE8925B0F9990031AC97 /* CounterListViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
