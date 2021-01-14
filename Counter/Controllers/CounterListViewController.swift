@@ -12,8 +12,6 @@ class CounterListViewController: UIViewController {
     //MARK: - Properties
     
     var viewModel: CounterListViewModel!
-
-    //MARK: - Lifecycle
     
     static func instantiate() -> CounterListViewController {
          let storyboard = UIStoryboard(name: "Main", bundle: .main)
@@ -33,6 +31,18 @@ class CounterListViewController: UIViewController {
     
     private func setupNavController() {
         navigationController?.navigationBar.prefersLargeTitles = true
-        navigationItem.title = viewModel.title
+        navigationItem.title = .none
+        
+        let titleLabel = UILabel()
+        titleLabel.text = viewModel.title
+        titleLabel.textAlignment = .center
+        titleLabel.font = UIFont.systemFont(ofSize: 36, weight: .bold)
+        titleLabel.translatesAutoresizingMaskIntoConstraints = false
+        
+        guard let targetView = self.navigationController?.navigationBar else { return }
+        targetView.addSubview(titleLabel)
+        titleLabel.anchor(bottom: targetView.bottomAnchor, width: 222, height: 40)
+        
+        titleLabel.centerX(inView: targetView)
     }
 }
