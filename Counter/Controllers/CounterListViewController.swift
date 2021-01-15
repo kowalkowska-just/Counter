@@ -13,12 +13,7 @@ class CounterListViewController: UIViewController {
     
     var viewModel: CounterListViewModel!
     var tableView = UITableView()
-    
-    static func instantiate() -> CounterListViewController {
-         let storyboard = UIStoryboard(name: "Main", bundle: .main)
-         let controller = storyboard.instantiateViewController(identifier: "CounterListViewController") as! CounterListViewController
-         return controller
-     }
+    var headerView: HeaderView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,7 +27,7 @@ class CounterListViewController: UIViewController {
     //MARK: - Helper functions
     
     private func setupNavController() {
-        navigationController?.navigationBar.prefersLargeTitles = true
+       // navigationController?.navigationBar.prefersLargeTitles = true
         navigationItem.title = .none
         
         let titleLabel = UILabel()
@@ -43,7 +38,7 @@ class CounterListViewController: UIViewController {
         guard let targetView = self.navigationController?.navigationBar else { return }
         targetView.addSubview(titleLabel)
         titleLabel.anchor(bottom: targetView.bottomAnchor,
-                          paddingBottom: 20,
+                          paddingBottom: 5,
                           width: 222, height: 40)
         
         titleLabel.centerX(inView: targetView)
@@ -58,11 +53,16 @@ class CounterListViewController: UIViewController {
                          left: view.leftAnchor,
                          bottom: view.bottomAnchor,
                          right: view.rightAnchor,
-                         paddingLeft: 20, paddingRight: 20)
+                         paddingLeft: 0, paddingRight: 0)
+        
+        let frame = CGRect(x: 0, y: 0, width: view.frame.width, height: 50)
+        headerView = HeaderView(frame: frame)
+        tableView.tableHeaderView = headerView
+        tableView.tableFooterView = UIView()
     }
 }
 
-//MARK: - Extension: UITableViewDelegate, UITableViewDataSource 
+//MARK: - Extension: UITableViewDelegate, UITableViewDataSource
 
 extension CounterListViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
