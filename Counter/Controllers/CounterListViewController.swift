@@ -28,12 +28,14 @@ class CounterListViewController: UIViewController {
     
     private func setupNavController() {
        // navigationController?.navigationBar.prefersLargeTitles = true
+        navigationController?.view.backgroundColor = .white
+        navigationController?.navigationBar.isTranslucent = false
         navigationItem.title = .none
         
         let titleLabel = UILabel()
         titleLabel.text = viewModel.title
         titleLabel.textAlignment = .center
-        titleLabel.font = UIFont.systemFont(ofSize: 36, weight: .bold)
+        titleLabel.font = UIFont.systemFont(ofSize: 35, weight: .light)
         
         guard let targetView = self.navigationController?.navigationBar else { return }
         targetView.addSubview(titleLabel)
@@ -47,6 +49,8 @@ class CounterListViewController: UIViewController {
     private func setupTabelView() {
         tableView.delegate = self
         tableView.dataSource = self
+        
+        tableView.register(CounterCell.self, forCellReuseIdentifier: "CounterCell")
         
         view.addSubview(tableView)
         tableView.anchor(top: view.safeAreaLayoutGuide.topAnchor,
@@ -70,6 +74,16 @@ extension CounterListViewController: UITableViewDelegate, UITableViewDataSource 
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return UITableViewCell()
+        
+//        switch viewModel.cell(at: indexPath) {
+//        case .counter(let counterCellViewModel):
+            let cell = tableView.dequeueReusableCell(withIdentifier: "CounterCell", for: indexPath) as! CounterCell
+//            cell.update(with: counterCellViewModel)
+            return cell
+//        }
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 200
     }
 }

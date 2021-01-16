@@ -19,6 +19,8 @@
 		D124AE8925B0F9990031AC97 /* CounterListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D124AE8825B0F9990031AC97 /* CounterListViewModel.swift */; };
 		D124AE9025B1171E0031AC97 /* CounterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D124AE8F25B1171E0031AC97 /* CounterCell.swift */; };
 		D124AE9625B21A1B0031AC97 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D124AE9525B21A1B0031AC97 /* HeaderView.swift */; };
+		D124AE9925B244D70031AC97 /* CounterCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D124AE9825B244D70031AC97 /* CounterCellViewModel.swift */; };
+		D124AE9D25B33B6C0031AC97 /* CounterDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D124AE9B25B33B6C0031AC97 /* CounterDataModel.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +38,8 @@
 		D124AE8825B0F9990031AC97 /* CounterListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CounterListViewModel.swift; sourceTree = "<group>"; };
 		D124AE8F25B1171E0031AC97 /* CounterCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CounterCell.swift; sourceTree = "<group>"; };
 		D124AE9525B21A1B0031AC97 /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
+		D124AE9825B244D70031AC97 /* CounterCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CounterCellViewModel.swift; sourceTree = "<group>"; };
+		D124AE9C25B33B6C0031AC97 /* CounterDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CounterDataModel.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +83,7 @@
 				D124AE6325B0E55C0031AC97 /* Assets.xcassets */,
 				D124AE6525B0E55C0031AC97 /* LaunchScreen.storyboard */,
 				D124AE6825B0E55C0031AC97 /* Info.plist */,
+				D124AE9B25B33B6C0031AC97 /* CounterDataModel.xcdatamodeld */,
 			);
 			path = Counter;
 			sourceTree = "<group>";
@@ -112,6 +117,7 @@
 			isa = PBXGroup;
 			children = (
 				D124AE8825B0F9990031AC97 /* CounterListViewModel.swift */,
+				D124AE9825B244D70031AC97 /* CounterCellViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -195,11 +201,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D124AE9D25B33B6C0031AC97 /* CounterDataModel.xcdatamodeld in Sources */,
 				D124AE7425B0E9110031AC97 /* CounterListViewController.swift in Sources */,
 				D124AE9625B21A1B0031AC97 /* HeaderView.swift in Sources */,
 				D124AE7125B0E89B0031AC97 /* AppCoordinator.swift in Sources */,
 				D124AE5B25B0E5580031AC97 /* AppDelegate.swift in Sources */,
 				D124AE8425B0F8DA0031AC97 /* Extension.swift in Sources */,
+				D124AE9925B244D70031AC97 /* CounterCellViewModel.swift in Sources */,
 				D124AE9025B1171E0031AC97 /* CounterCell.swift in Sources */,
 				D124AE7B25B0E93C0031AC97 /* CounterListCoordinator.swift in Sources */,
 				D124AE5D25B0E5580031AC97 /* SceneDelegate.swift in Sources */,
@@ -409,6 +417,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		D124AE9B25B33B6C0031AC97 /* CounterDataModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				D124AE9C25B33B6C0031AC97 /* CounterDataModel.xcdatamodel */,
+			);
+			currentVersion = D124AE9C25B33B6C0031AC97 /* CounterDataModel.xcdatamodel */;
+			path = CounterDataModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = D124AE4F25B0E5580031AC97 /* Project object */;
 }

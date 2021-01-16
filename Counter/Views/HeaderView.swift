@@ -29,12 +29,12 @@ final class HeaderView: UIView {
         return button
     }()
     
-    private let addItemButton: UIButton = {
+    private let addCunterButton: UIButton = {
         let button = UIButton(type: .system)
         button.setImage(UIImage(systemName: "plus"), for: .normal)
         button.tintColor = .black
         button.backgroundColor = UIColor.lightGray.withAlphaComponent(0.18)
-        button.addTarget(self, action: #selector(handleAddItem), for: .touchUpInside)
+        button.addTarget(self, action: #selector(handleAddCounter), for: .touchUpInside)
         return button
     }()
     
@@ -54,19 +54,24 @@ final class HeaderView: UIView {
     //MARK: - Helper functions
     
     func setupHeaderView() {
-        backgroundColor = UIColor.black.withAlphaComponent(0.02)
+      //  backgroundColor = UIColor.black.withAlphaComponent(0.02)
         
         addSubview(segmentedController)
         segmentedController.centerX(inView: self)
         segmentedController.anchor(top: self.topAnchor, bottom: self.bottomAnchor, paddingTop: 10, paddingBottom: 10)
         
         addSubview(sortListButton)
-        sortListButton.anchor(top: self.topAnchor, bottom: self.bottomAnchor, right: self.rightAnchor, paddingTop: 10, paddingBottom: 10, paddingRight: -15, width: 30, height: 30)
+        sortListButton.anchor(top: self.topAnchor, bottom: self.bottomAnchor, right: self.rightAnchor, paddingTop: 5, paddingBottom: 5, paddingRight: -15, width: 40, height: 40)
         sortListButton.layer.cornerRadius = 10
         
-        addSubview(addItemButton)
-        addItemButton.anchor(top: self.topAnchor, left: self.leftAnchor, bottom: self.bottomAnchor, paddingTop: 10, paddingLeft: 15, paddingBottom: 10, width: 30, height: 30)
-        addItemButton.layer.cornerRadius = 10
+        addSubview(addCunterButton)
+        addCunterButton.anchor(top: self.topAnchor, left: self.leftAnchor, bottom: self.bottomAnchor, paddingTop: 5, paddingLeft: 15, paddingBottom: 5, width: 40, height: 40)
+        addCunterButton.layer.cornerRadius = 10
+        
+        let separator = UIView()
+        separator.backgroundColor = UIColor.lightGray
+        addSubview(separator)
+        separator.anchor(left: self.leftAnchor, bottom: self.bottomAnchor, right: self.rightAnchor, height: 0.2)
 
 
     }
@@ -87,7 +92,7 @@ final class HeaderView: UIView {
         print("DEBUG: Tapped sort list button")
     }
     
-    @objc func handleAddItem() {
+    @objc func handleAddCounter() {
         print("DEBUG: Tapped add item button")
 
     }
