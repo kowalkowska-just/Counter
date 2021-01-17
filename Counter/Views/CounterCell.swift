@@ -14,7 +14,7 @@ class CounterCell: UITableViewCell {
     private let titleLabel: UILabel = {
         let label = UILabel()
         label.tintColor = .darkGray
-        label.font = UIFont.systemFont(ofSize: 30, weight: .light)
+        label.font = UIFont.systemFont(ofSize: 21, weight: .light)
         label.textAlignment = .left
         label.adjustsFontSizeToFitWidth = true
         
@@ -25,7 +25,7 @@ class CounterCell: UITableViewCell {
     private let counterValueLabel: UILabel = {
         let label = UILabel()
         label.tintColor = .darkGray
-        label.font = UIFont.systemFont(ofSize: 25, weight: .bold)
+        label.font = UIFont.systemFont(ofSize: 18, weight: .bold)
         label.textAlignment = .center
         label.adjustsFontSizeToFitWidth = true
         
@@ -38,7 +38,6 @@ class CounterCell: UITableViewCell {
         view.backgroundColor = UIColor.white
         view.addSubview(counterValueLabel)
         counterValueLabel.anchor(top: view.topAnchor, left: view.leftAnchor, bottom: view.bottomAnchor, right: view.rightAnchor, paddingTop: 5, paddingLeft: 5, paddingBottom: 5, paddingRight: -5)
-        view.layer.cornerRadius = 32.5
         return view
     }()
     
@@ -57,6 +56,36 @@ class CounterCell: UITableViewCell {
         button.tintColor = .black
         button.backgroundColor = .white
         button.addTarget(self, action: #selector(handleSubtractValue), for: .touchUpInside)
+        return button
+    }()
+    
+    private let showMoreCellButtom: UIButton = {
+        let button = UIButton(type: .system)
+        button.setImage(UIImage(systemName: "chevron.compact.down"), for: .normal)
+        button.tintColor = .black
+        button.backgroundColor = UIColor.white.withAlphaComponent(0.1)
+        button.addTarget(self, action: #selector(handleShowMoreCell), for: .touchUpInside)
+
+        return button
+    }()
+    
+    private let timeSinceTheLastOneLabel: UILabel = {
+        let label = UILabel()
+        label.text = "Time since the last one:"
+        label.textAlignment = .left
+        label.tintColor = .darkGray
+        label.font = UIFont.systemFont(ofSize: 14)
+        
+        return label
+    }()
+    
+    private let showLessCellButtom: UIButton = {
+        let button = UIButton(type: .system)
+        button.setImage(UIImage(systemName: "chevron.compact.up"), for: .normal)
+        button.tintColor = .black
+        button.backgroundColor = UIColor.white.withAlphaComponent(0.1)
+        button.addTarget(self, action: #selector(handleShowLessCell), for: .touchUpInside)
+
         return button
     }()
 
@@ -80,7 +109,7 @@ class CounterCell: UITableViewCell {
         backgroundColor = .white
         
         let view = UIView()
-        view.backgroundColor = .orange
+        view.backgroundColor = UIColor.systemTeal
         
         addSubview(view)
         view.anchor(top: self.topAnchor, left: self.leftAnchor,
@@ -96,19 +125,45 @@ class CounterCell: UITableViewCell {
         view.addSubview(containerValueView)
         containerValueView.anchor(top: view.topAnchor, right: view.rightAnchor,
                                   paddingTop: 10, paddingRight: -15,
-                                  width: 65, height: 65)
+                                  width: 50, height: 50)
+        containerValueView.layer.cornerRadius = 25
         
         view.addSubview(subtractButton)
         subtractButton.anchor(top: containerValueView.bottomAnchor, right: view.rightAnchor,
                               paddingTop: 5, paddingRight: -25,
-                              width: 20, height: 20)
-        subtractButton.layer.cornerRadius = 10
+                              width: 15, height: 15)
+        subtractButton.layer.cornerRadius = 7.5
         
         view.addSubview(addButton)
         addButton.anchor(top: containerValueView.bottomAnchor, right: subtractButton.leftAnchor,
                          paddingTop: 2.5, paddingRight: -5,
-                         width: 35, height: 35)
-        addButton.layer.cornerRadius = 17.5
+                         width: 25, height: 25)
+        addButton.layer.cornerRadius = 12.5
+        
+        view.addSubview(showMoreCellButtom)
+        showMoreCellButtom.anchor(top: addButton.bottomAnchor,
+                                  left: view.leftAnchor,
+                                  right: view.rightAnchor,
+                                  paddingTop: 5, paddingLeft: 5,
+                                  paddingRight: -5,
+                                  height: 25)
+        
+        view.addSubview(timeSinceTheLastOneLabel)
+        timeSinceTheLastOneLabel.anchor(top: showMoreCellButtom.bottomAnchor, left: view.leftAnchor, paddingTop: 5, paddingLeft: 15)
+        
+        let graphView = UIView()
+        graphView.backgroundColor = .white
+        
+        view.addSubview(graphView)
+        graphView.anchor(top: timeSinceTheLastOneLabel.bottomAnchor, left: view.leftAnchor, right: view.rightAnchor, paddingTop: 5, paddingLeft: 15, paddingRight: -15, height: 100)
+        
+        view.addSubview(showLessCellButtom)
+        showLessCellButtom.anchor(top: graphView.bottomAnchor, left: view.leftAnchor,
+                                  bottom: view.bottomAnchor, right: view.rightAnchor,
+                                  paddingTop: 5, paddingLeft: 5,
+                                  paddingBottom: 5, paddingRight: -5,
+                                  height: 25)
+    
     }
     
     func update(with viewModel: CounterCellViewModel) {
@@ -118,10 +173,19 @@ class CounterCell: UITableViewCell {
     //MARK: - Selectors
     
     @objc private func handleAddValue() {
-        
+        print("DEBUG: Add to counter value")
     }
     
     @objc private func handleSubtractValue() {
-        
+        print("DEBUG: Subtract from counter value")
     }
+    
+    @objc private func handleShowMoreCell() {
+        print("DEBUG: Showing more cell")
+    }
+    
+    @objc private func handleShowLessCell() {
+        print("DEBUG: Showing less cell")
+    }
+    
 }
